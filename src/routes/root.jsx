@@ -9,7 +9,7 @@ export async function action() {
 export default function Root() {
     const { contacts } = useLoaderData();
     const navigation = useNavigation();
-    console.log(navigation, 'navigation')
+    // console.log(navigation, 'navigation')
     return (
       <>
         <div id="sidebar">
