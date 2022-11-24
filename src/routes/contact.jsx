@@ -9,8 +9,15 @@ export async function action({ request, params }) {
 }
 
 export async function loader({ params }) {
-    return getContact(params.contactId);
+  const contact = await getContact(params.contactId);
+  if (!contact) {
+    throw new Response("", {
+      status: 404,
+      statusText: "Not Found",
+    });
   }
+  return contact;
+}
   
 export default function Contact() {
     const contact = useLoaderData();
